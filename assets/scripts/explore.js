@@ -31,9 +31,12 @@ function init() {
 
         const smilingImg = document.querySelector('img');
         smilingImg.setAttribute('src','assets/images/smiling-open.png');
-        talking.onend = () => {
+        const check = setInterval(function(){
+            if(speech.speaking == false){
             smilingImg.setAttribute('src', 'assets/images/smiling.png');
-        };
+            clearInterval(check);
+            }
+        }, 100);
     }
   });
 }
